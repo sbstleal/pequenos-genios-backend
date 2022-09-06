@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 
-//@Service
+@Service
 public class DBService {
 
     @Autowired
