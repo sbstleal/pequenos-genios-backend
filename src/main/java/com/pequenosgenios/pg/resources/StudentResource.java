@@ -17,34 +17,42 @@ import java.util.stream.Collectors;
 @RequestMapping(value = "/student")
 public class StudentResource {
 
-	@Autowired
-	private StudentService studentService;
+    @Autowired
+    private StudentService studentService;
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Student> find(@PathVariable Integer id) {
-		Student obj = studentService.find(id);
-		return ResponseEntity.ok().body(obj);
-	}
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Student> find(@PathVariable Integer id) {
+        Student obj = studentService.find(id);
+        return ResponseEntity.ok().body(obj);
+    }
 
-	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<Void> insert(@RequestBody StudentDTO objDto) {
-		Student obj = studentService.fromDTO(objDto);
-		obj = studentService.insert(obj);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-				.path("/{id}").buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.created(uri).build();
-	}
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<Void> insert(@RequestBody StudentDTO objDto) {
+        Student obj = studentService.fromDTO(objDto);
+        obj = studentService.insert(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}").buildAndExpand(obj.getId()).toUri();
+        return ResponseEntity.created(uri).build();
+    }
 
-	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
-	public ResponseEntity<Void> delete(@PathVariable Integer id) {
-		studentService.delete(id);
-		return ResponseEntity.noContent().build();
-	}
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Void> update( @RequestBody StudentDTO objDto, @PathVariable Integer id) {
+        Student obj = studentService.fromDTO(objDto);
+        obj.setId(id);
+        obj = studentService.update(obj);
+        return ResponseEntity.noContent().build();
+    }
 
-	@RequestMapping(method=RequestMethod.GET)
-	public ResponseEntity<List<StudentDTO>> findAll() {
-		List<Student> list = studentService.findAll();
-		List<StudentDTO> listDto = list.stream().map(obj -> new StudentDTO(obj)).collect(Collectors.toList());
-		return ResponseEntity.ok().body(listDto);
-	}
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+        studentService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<List<StudentDTO>> findAll() {
+        List<Student> list = studentService.findAll();
+        List<StudentDTO> listDto = list.stream().map(obj -> new StudentDTO(obj)).collect(Collectors.toList());
+        return ResponseEntity.ok().body(listDto);
+    }
 }
