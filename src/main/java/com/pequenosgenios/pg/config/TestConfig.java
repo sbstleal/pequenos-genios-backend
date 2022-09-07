@@ -13,13 +13,13 @@ import java.text.ParseException;
 @Profile("test")
 public class TestConfig {
 
-//    @Autowired
-//    private DBService dbService;
-//
-//    @Bean
-//    public boolean instantiateDatabase() {
-//        dbService.instantiateTestDatabase();
-//        return true;
-//    }
+    @Autowired
+    private DBService dbService;
+
+    @Bean
+    public boolean instantiateDatabase() {
+        dbService.instantiateTestDatabase();
+        return true;
+    }
 
 }
