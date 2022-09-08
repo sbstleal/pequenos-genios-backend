@@ -3,6 +3,9 @@ package com.pequenosgenios.pg.domain;
 import lombok.*;
 
 import javax.persistence.*;
+
+import com.pequenosgenios.pg.dto.StudentDTO;
+
 import java.io.Serializable;
 
 @Entity
@@ -43,6 +46,38 @@ public class Student implements Serializable {
         this.country = country;
         this.postalCode = postalCode;
         this.state = state;
+        
+        
     }
+
+	public Student(StudentDTO dto) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+		this.fee = fee;
+		this.email = email;
+		this.street = street;
+		this.city = city;
+		this.country = country;
+		this.postalCode = postalCode;
+		this.state = state;
+		this.classe = classe;
+	}
+	
+	public Student(Integer id, StudentDTO dto) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+		this.fee = fee;
+		this.email = email;
+		this.street = street;
+		this.city = city;
+		this.country = country;
+		this.postalCode = postalCode;
+		this.state = state;
+		this.classe = classe;
+	}
 
 }
