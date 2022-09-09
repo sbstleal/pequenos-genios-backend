@@ -1,6 +1,7 @@
 package com.pequenosgenios.pg.resources;
 
 import com.pequenosgenios.pg.domain.Student;
+import com.pequenosgenios.pg.dto.NewStudentDTO;
 import com.pequenosgenios.pg.dto.StudentDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +28,7 @@ public class StudentResource {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Void> insert(@RequestBody StudentDTO objDto) {
+    public ResponseEntity<Void> insert(@RequestBody NewStudentDTO objDto) {
         Student obj = studentService.fromDTO(objDto);
         obj = studentService.insert(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()

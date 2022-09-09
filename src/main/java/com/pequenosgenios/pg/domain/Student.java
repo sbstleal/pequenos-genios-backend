@@ -1,5 +1,8 @@
 package com.pequenosgenios.pg.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -28,6 +31,7 @@ public class Student implements Serializable {
     private String postalCode;
     private String state;
 
+
     @ManyToOne
     @JoinColumn(name="classe_id")
     private Class classe;
@@ -44,5 +48,4 @@ public class Student implements Serializable {
         this.postalCode = postalCode;
         this.state = state;
     }
-
 }

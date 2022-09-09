@@ -1,24 +1,21 @@
 package com.pequenosgenios.pg.dto;
 
-import java.io.Serializable;
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pequenosgenios.pg.domain.Class;
 import com.pequenosgenios.pg.domain.Student;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class StudentDTO implements Serializable {
+public class NewStudentDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
     private Integer id;
     private String name;
     private String phoneNumber;
@@ -30,10 +27,10 @@ public class StudentDTO implements Serializable {
     private String postalCode;
     private String state;
 
-    private Class classe;
 
-    
-    public StudentDTO(Student student) {
+
+
+    public NewStudentDTO(Student student) {
     	super();
 		this.id = student.getId();
 		this.name = student.getName();
@@ -44,9 +41,7 @@ public class StudentDTO implements Serializable {
 		this.city = student.getCity();
 		this.country = student.getCountry();
 		this.postalCode = student.getPostalCode();
-		this.classe = student.getClasse();
         this.state = student.getState();
-
     }
 
 }

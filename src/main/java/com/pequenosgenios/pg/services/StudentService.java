@@ -1,6 +1,7 @@
 package com.pequenosgenios.pg.services;
 
 import com.pequenosgenios.pg.domain.Student;
+import com.pequenosgenios.pg.dto.NewStudentDTO;
 import com.pequenosgenios.pg.dto.StudentDTO;
 import com.pequenosgenios.pg.repositories.StudentRepository;
 import com.pequenosgenios.pg.services.exceptions.DataIntegrityException;
@@ -23,7 +24,7 @@ public class StudentService {
     @Transactional
     public Student find(Integer id) {
         Optional<Student> obj = studentRepository.findById(id);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", TipoL " + Student.class.getName()));
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo " + Student.class.getName()));
     }
 
     @Transactional
@@ -70,6 +71,9 @@ public class StudentService {
     }
 
     public Student fromDTO(StudentDTO objDto) {
+        return new Student(objDto.getId(), objDto.getName(), objDto.getPhoneNumber(), objDto.getFee(), objDto.getEmail(), objDto.getStreet(), objDto.getCity(), objDto.getCountry(), objDto.getPostalCode(), objDto.getState());
+    }
+    public Student fromDTO(NewStudentDTO objDto) {
         return new Student(objDto.getId(), objDto.getName(), objDto.getPhoneNumber(), objDto.getFee(), objDto.getEmail(), objDto.getStreet(), objDto.getCity(), objDto.getCountry(), objDto.getPostalCode(), objDto.getState());
     }
 }
