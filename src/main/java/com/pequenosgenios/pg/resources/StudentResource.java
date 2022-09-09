@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import com.pequenosgenios.pg.services.StudentService;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.websocket.server.PathParam;
 import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -54,6 +55,14 @@ public class StudentResource {
     public ResponseEntity<List<StudentDTO>> findAll() {
         List<Student> list = studentService.findAll();
         List<StudentDTO> listDto = list.stream().map(obj -> new StudentDTO(obj)).collect(Collectors.toList());
+        return ResponseEntity.ok().body(listDto);
+    }
+
+
+    @RequestMapping(value = "/class/{id}", method = RequestMethod.GET)
+    public ResponseEntity<List<NewStudentDTO>> findByClass(@PathVariable Integer id) {
+        List<Student> list = studentService.findByClass(id);
+        List<NewStudentDTO> listDto = list.stream().map(obj -> new NewStudentDTO(obj)).collect(Collectors.toList());
         return ResponseEntity.ok().body(listDto);
     }
 }

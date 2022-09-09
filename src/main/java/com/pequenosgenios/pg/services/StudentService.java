@@ -76,4 +76,10 @@ public class StudentService {
     public Student fromDTO(NewStudentDTO objDto) {
         return new Student(objDto.getId(), objDto.getName(), objDto.getPhoneNumber(), objDto.getFee(), objDto.getEmail(), objDto.getStreet(), objDto.getCity(), objDto.getCountry(), objDto.getPostalCode(), objDto.getState());
     }
+
+    public List<Student> findByClass(Integer id) {
+        return studentRepository.findByClass(id);
+
+    }
+
 }
