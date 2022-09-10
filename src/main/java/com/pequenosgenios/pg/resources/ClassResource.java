@@ -28,11 +28,19 @@ public class ClassResource {
         return ResponseEntity.ok().body(list);
     }
 
-    @RequestMapping(method = RequestMethod.PUT)
-    public ResponseEntity<String> studentsAssigment(@RequestParam(value = "idclass") Integer idClass, @RequestParam(value = "idstudent") Integer idStudent) {
+    @RequestMapping(value = "/student", method = RequestMethod.PUT)
+    public ResponseEntity<String> studentAssigment(@RequestParam(value = "idclass") Integer idClass, @RequestParam(value = "idstudent") Integer idStudent) {
         classService.studentsAssigment(idClass, idStudent);
 
         return ResponseEntity.ok().body(new String("Aluno de id: " + idStudent + " foi cadastrado na " + idClass + " série!!"));
+
+    }
+
+    @RequestMapping(value = "/teacher", method = RequestMethod.PUT)
+    public ResponseEntity<String> teacherAssigment(@RequestParam(value = "idclass") Integer idClass, @RequestParam(value = "idteacher") Integer idTeacher) {
+        classService.teacherAssigment(idClass, idTeacher);
+
+        return ResponseEntity.ok().body(new String("Teacher de id: " + idTeacher + " foi cadastrado na " + idClass + " série!!"));
 
     }
 }
