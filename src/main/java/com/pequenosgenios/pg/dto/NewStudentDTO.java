@@ -1,6 +1,5 @@
 package com.pequenosgenios.pg.dto;
 
-import com.pequenosgenios.pg.domain.Class;
 import com.pequenosgenios.pg.domain.Student;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

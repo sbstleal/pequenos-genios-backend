@@ -1,10 +1,7 @@
 package com.pequenosgenios.pg.resources;
 
-import com.pequenosgenios.pg.domain.Student;
 import com.pequenosgenios.pg.domain.Teacher;
-import com.pequenosgenios.pg.dto.NewStudentDTO;
 import com.pequenosgenios.pg.dto.NewTeacherDTO;
-import com.pequenosgenios.pg.dto.StudentDTO;
 import com.pequenosgenios.pg.dto.TeacherDTO;
 import com.pequenosgenios.pg.services.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;

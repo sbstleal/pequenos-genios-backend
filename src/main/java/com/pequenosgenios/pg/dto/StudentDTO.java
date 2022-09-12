@@ -1,16 +1,13 @@
 package com.pequenosgenios.pg.dto;
 
-import java.io.Serializable;
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pequenosgenios.pg.domain.Class;
 import com.pequenosgenios.pg.domain.Student;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.io.Serializable;
 
 @NoArgsConstructor
 @AllArgsConstructor

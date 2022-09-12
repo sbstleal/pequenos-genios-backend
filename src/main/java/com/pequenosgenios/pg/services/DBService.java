@@ -3,24 +3,16 @@ package com.pequenosgenios.pg.services;
 import com.pequenosgenios.pg.domain.Class;
 import com.pequenosgenios.pg.domain.Student;
 import com.pequenosgenios.pg.domain.Teacher;
-import com.pequenosgenios.pg.repositories.ClassRepository;
-import com.pequenosgenios.pg.repositories.StudentRepository;
-import com.pequenosgenios.pg.repositories.TeacherRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
-@Service
+//@Service
 public class DBService {
 
-    @Autowired
-    private StudentRepository studentRepository;
-    @Autowired
-    private TeacherRepository teacherRepository;
-    @Autowired
-    private ClassRepository classRepository;
+//    @Autowired
+//    private StudentRepository studentRepository;
+//    @Autowired
+//    private TeacherRepository teacherRepository;
+//    @Autowired
+//    private ClassRepository classRepository;
     public void instantiateTestDatabase() {
 
 
@@ -39,8 +31,8 @@ public class DBService {
         Class class07 = new Class(7);
         Class class08 = new Class(8);
 
-        classRepository.saveAll((Arrays.asList(class01, class02, class03, class04, class05, class06, class07, class08)));
-        studentRepository.saveAll(Arrays.asList(student01, student02, student03));
-        teacherRepository.saveAll(Arrays.asList(teacher01));
+//        classRepository.saveAll((Arrays.asList(class01, class02, class03, class04, class05, class06, class07, class08)));
+//        studentRepository.saveAll(Arrays.asList(student01, student02, student03));
+//        teacherRepository.saveAll(Arrays.asList(teacher01));
     }
 }
