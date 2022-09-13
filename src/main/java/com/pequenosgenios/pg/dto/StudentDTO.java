@@ -1,49 +1,19 @@
 package com.pequenosgenios.pg.dto;
 
-import com.pequenosgenios.pg.domain.Class;
 import com.pequenosgenios.pg.domain.Student;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-import java.io.Serializable;
-
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-public class StudentDTO implements Serializable {
-	private static final long serialVersionUID = 1L;
-	
-    private Integer id;
-    private String name;
-    private String phoneNumber;
-    private Double fee;
-    private String email;
-    private String street;
-    private String city;
-    private String country;
-    private String postalCode;
-    private String state;
+public class StudentDTO extends PersonDTO {
+    private String fees;
 
-    private Class classe;
-
-    
-    public StudentDTO(Student student) {
-    	super();
-		this.id = student.getId();
-		this.name = student.getName();
-		this.phoneNumber = student.getPhoneNumber();
-		this.fee = student.getFee();
-		this.email = student.getEmail();
-		this.street = student.getStreet();
-		this.city = student.getCity();
-		this.country = student.getCountry();
-		this.postalCode = student.getPostalCode();
-		this.classe = student.getClasse();
-        this.state = student.getState();
-
+    public StudentDTO(Student model) {
+        super(model.getId(), model.getName(), model.getPhoneNumber(), model.getEmailAddress(), new AddressDTO(model.getAddress()));
+        this.fees = model.getFees();
     }
 
 }

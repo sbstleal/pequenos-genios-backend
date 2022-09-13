@@ -1,46 +1,53 @@
 package com.pequenosgenios.pg.resources;
 
-import com.pequenosgenios.pg.domain.Class;
-import com.pequenosgenios.pg.services.ClassService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.pequenosgenios.pg.dto.ClassDTO;
+import com.pequenosgenios.pg.services.impl.ClassService;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.util.List;
+import java.net.URI;
 
 @RestController
-@RequestMapping(value = "/class")
+@RequestMapping("/class")
 public class ClassResource {
+    private final ClassService classService;
 
-    @Autowired
-    private ClassService classService;
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Class> find(@PathVariable Integer id) {
-        Class obj = classService.find(id);
-        return ResponseEntity.ok().body(obj);
+    public ClassResource(ClassService classService) {
+        this.classService = classService;
     }
 
-
-    @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<Class>> findAll() {
-        List<Class> list = classService.findAll();
-        return ResponseEntity.ok().body(list);
+    @GetMapping
+    public ResponseEntity<Page<ClassDTO>> findAll(Pageable pageable) {
+        return ResponseEntity.ok(this.classService.findAll(pageable));
     }
 
-    @RequestMapping(value = "/student", method = RequestMethod.PUT)
-    public ResponseEntity<String> studentAssigment(@RequestParam(value = "idclass") Integer idClass, @RequestParam(value = "idstudent") Integer idStudent) {
-        classService.studentsAssigment(idClass, idStudent);
-
-        return ResponseEntity.ok().body(new String("Aluno de id: " + idStudent + " foi cadastrado na " + idClass + " série!!"));
-
+    @GetMapping("/{id}")
+    public ResponseEntity<ClassDTO> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(this.classService.findById(id));
     }
 
-    @RequestMapping(value = "/teacher", method = RequestMethod.PUT)
-    public ResponseEntity<String> teacherAssigment(@RequestParam(value = "idclass") Integer idClass, @RequestParam(value = "idteacher") Integer idTeacher) {
-        classService.teacherAssigment(idClass, idTeacher);
+    @PutMapping("/{id}")
+    public ResponseEntity<ClassDTO> update(@PathVariable Long id, @RequestBody ClassDTO classDTO) {
+        return ResponseEntity.accepted().body(this.classService.update(id, classDTO));
+    }
 
-        return ResponseEntity.ok().body(new String("Teacher de id: " + idTeacher + " foi cadastrado na " + idClass + " série!!"));
+    @PostMapping
+    public ResponseEntity<ClassDTO> insert(@RequestBody ClassDTO classDTO) {
+        classDTO = this.classService.insert(classDTO);
+        URI uri = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(classDTO.getId())
+                .toUri();
+        return ResponseEntity.created(uri).body(classDTO);
+    }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        this.classService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface TeacherRepository extends JpaRepository<Teacher, Integer> {
+public interface TeacherRepository extends JpaRepository<Teacher, Long> {
 
-    List<Teacher> findByEmail(String email);
+    List<Teacher> findByEmailAddress(String email);
 }

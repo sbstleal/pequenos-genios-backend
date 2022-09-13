@@ -1,6 +1,6 @@
 package com.pequenosgenios.pg.config;
 
-import com.pequenosgenios.pg.services.DBService;
+import com.pequenosgenios.pg.services.impl.DBService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 

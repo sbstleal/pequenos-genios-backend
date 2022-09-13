@@ -1,7 +1,7 @@
 package com.pequenosgenios.pg.config;
 
-import com.pequenosgenios.pg.services.TokenService;
-import com.pequenosgenios.pg.services.UserDetailsServiceImpl;
+import com.pequenosgenios.pg.services.impl.TokenService;
+import com.pequenosgenios.pg.services.impl.UserDetailsServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.lang.NonNull;

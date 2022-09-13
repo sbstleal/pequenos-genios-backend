@@ -1,36 +1,33 @@
 package com.pequenosgenios.pg.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.*;
+import com.pequenosgenios.pg.dto.ClassDTO;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
-@Table(name = "tb_classes")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-public class Class implements Serializable {
-    private static final long serialVersionUID = 1L;
-
+@AllArgsConstructor
+public class Class {
     @Id
-    private Integer grade;
-
-
-    @JsonIgnore
-    @OneToMany(mappedBy="classe", cascade = CascadeType.ALL)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @OneToOne
+    private Teacher teacher;
+    @OneToMany
     private Set<Student> students;
 
-    @JsonIgnore
-    @OneToOne(mappedBy="classe", cascade=CascadeType.ALL)
-    private Teacher teacher;
-
-    public Class(Integer grade) {
-        this.grade = grade;
+    public Class(ClassDTO dto) {
+        this.id = dto.getId();
+        this.teacher = new Teacher(dto.getTeacher());
+        this.students = dto.getStudents().stream().map(Student::new).collect(Collectors.toSet());
     }
 
 }

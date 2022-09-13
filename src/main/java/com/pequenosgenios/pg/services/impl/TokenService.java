@@ -1,4 +1,4 @@
-package com.pequenosgenios.pg.services;
+package com.pequenosgenios.pg.services.impl;
 
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;

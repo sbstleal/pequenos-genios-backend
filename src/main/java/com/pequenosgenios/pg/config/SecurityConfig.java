@@ -56,6 +56,8 @@ public class SecurityConfig {
         http.authorizeHttpRequests(auth ->
                 auth
                         .antMatchers("/auth/**").permitAll()
+                        .antMatchers("/swagger-ui/**").permitAll()
+                        .antMatchers("/v3/**").permitAll()
                         .anyRequest().authenticated()
         );
 

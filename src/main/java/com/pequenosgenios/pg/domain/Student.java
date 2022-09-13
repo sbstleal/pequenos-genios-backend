@@ -1,48 +1,23 @@
 package com.pequenosgenios.pg.domain;
 
-import lombok.*;
+import com.pequenosgenios.pg.dto.StudentDTO;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import javax.persistence.Entity;
 
 @Entity
-@Table(name = "tb_students")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-public class Student implements Serializable {
-    private static final long serialVersionUID = 1L;
+@AllArgsConstructor
+public class Student extends Person {
+    private String fees;
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer id;
-    private String name;
-    private String phoneNumber;
-    private Double fee;
-    private String email;
-    private String street;
-    private String city;
-    private String country;
-    private String postalCode;
-    private String state;
-
-
-    @ManyToOne
-    @JoinColumn(name="classe_id")
-    private Class classe;
-
-    public Student(Integer id, String name, String phoneNumber, Double fee, String email, String street, String city, String country, String postalCode, String state) {
-        this.id = id;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.fee = fee;
-        this.email = email;
-        this.street = street;
-        this.city = city;
-        this.country = country;
-        this.postalCode = postalCode;
-        this.state = state;
+    public Student(StudentDTO dto) {
+        super(dto.getId(), dto.getName(), dto.getPhoneNumber(), dto.getEmailAddress(), new Address(dto.getAddress()));
+        this.fees = dto.getFees();
     }
 }

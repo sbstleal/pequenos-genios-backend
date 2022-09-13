@@ -4,7 +4,7 @@ import com.pequenosgenios.pg.dto.auth.LoginRequest;
 import com.pequenosgenios.pg.dto.auth.LoginResponse;
 import com.pequenosgenios.pg.dto.auth.RefreshRequest;
 import com.pequenosgenios.pg.dto.auth.RefreshResponse;
-import com.pequenosgenios.pg.services.AuthenticationService;
+import com.pequenosgenios.pg.services.impl.AuthenticationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
-public class LoginController {
+public class AuthResource {
     private final AuthenticationService tokenService;
 
-    public LoginController(AuthenticationService tokenService) {
+    public AuthResource(AuthenticationService tokenService) {
         this.tokenService = tokenService;
     }
 

@@ -1,4 +1,4 @@
-package com.pequenosgenios.pg.services;
+package com.pequenosgenios.pg.services.impl;
 
 import com.pequenosgenios.pg.config.UserDetailsImpl;
 import com.pequenosgenios.pg.dto.auth.LoginRequest;
