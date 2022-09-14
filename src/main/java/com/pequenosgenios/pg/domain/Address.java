@@ -20,6 +20,7 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String cep;
     private String street;
     private Integer number;
     private String district;
@@ -29,6 +30,7 @@ public class Address {
 
     public Address(AddressDTO dto) {
         this.id = dto.getId();
+        this.cep = dto.getCep();
         this.street = dto.getStreet();
         this.number = dto.getNumber();
         this.district = dto.getDistrict();
