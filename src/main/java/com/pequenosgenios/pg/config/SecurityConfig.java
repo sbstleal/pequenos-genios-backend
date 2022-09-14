@@ -58,6 +58,7 @@ public class SecurityConfig {
                         .antMatchers("/auth/**").permitAll()
                         .antMatchers("/swagger-ui/**").permitAll()
                         .antMatchers("/v3/**").permitAll()
+                        .antMatchers("/h2-console/**").permitAll()
                         .anyRequest().authenticated()
         );
 
