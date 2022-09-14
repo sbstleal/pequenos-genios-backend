@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AddressDTO {
     private Long id;
+    private String cep;
     private String street;
     private Integer number;
     private String district;
@@ -17,6 +18,7 @@ public class AddressDTO {
 
     public AddressDTO(Address model) {
         this.id = model.getId();
+        this.cep = model.getCep();
         this.street = model.getStreet();
         this.number = model.getNumber();
         this.district = model.getDistrict();
