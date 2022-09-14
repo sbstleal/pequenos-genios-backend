@@ -2,8 +2,10 @@ package com.pequenosgenios.pg.dto;
 
 import com.pequenosgenios.pg.domain.Address;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class AddressDTO {
     private Long id;
     private String street;
