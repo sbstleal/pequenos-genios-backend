@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "ba047a19-dd03-4fbb-8d6d-436f0f099930",
+		"name": "DEVFORTECH",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14094496"
+	},
+	"item": [
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "insert",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"name\": \"Antonio\",\n    \"phoneNumber\": \"48991709090\",\n    \"emailAddress\": \"antonio@email.com\",\n    \"address\": {\n        \"id\": null,\n        \"street\": \"street\",\n        \"number\": 200,\n        \"district\": \"district\",\n        \"city\": \"state\"\n        },\n    \"fees\": 1200\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{heroku}}/student",
+							"host": [
+								"{{heroku}}"
+							],
+							"path": [
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"name\": \"Antonio\",\n    \"phoneNumber\": \"48991709191\",\n    \"emailAddress\": \"antonio2@email.com\",\n    \"address\": {\n        \"id\": 2,\n        \"street\": \"street\",\n        \"number\": 200,\n        \"district\": \"district\",\n        \"city\": \"state\"\n        },\n    \"fees\": 1200\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{heroku}}/student/2",
+							"host": [
+								"{{heroku}}"
+							],
+							"path": [
+								"student",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{heroku}}/student/2",
+							"host": [
+								"{{heroku}}"
+							],
+							"path": [
+								"student",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/student",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"student"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"username\",\n    \"password\": \"nova_senha\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{heroku}}/auth/login",
+					"host": [
+						"{{heroku}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbnRvbmlvIiwiaWF0IjoxNjYzMTQ3NDg4LCJleHAiOjE2NjM1MDc0ODh9.9WrgAIOtG8zMLz_OjeiaFxDBsp62-MxMEi674YYRQ_jMOqFgTv0u9RhEtTEjKshlJYP8_sJ_tBpbPa_VUHeRvg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "heroku",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
