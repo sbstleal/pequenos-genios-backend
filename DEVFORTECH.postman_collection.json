@@ -140,31 +140,196 @@
 			]
 		},
 		{
-			"name": "login",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"username\": \"username\",\n    \"password\": \"nova_senha\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Teacher",
+			"item": [
+				{
+					"name": "insert",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"name\": \"Pedro\",\n    \"phoneNumber\": \"48998121232\",\n    \"emailAddress\": \"pedro@email.com\",\n    \"address\": {\n        \"id\": null,\n        \"street\": \"street1\",\n        \"number\": 103,\n        \"district\": \"district2\",\n        \"city\": \"stat2\"\n        },\n    \"salary\": 5000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{heroku}}/teacher",
+							"host": [
+								"{{heroku}}"
+							],
+							"path": [
+								"teacher"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{heroku}}/auth/login",
-					"host": [
-						"{{heroku}}"
-					],
-					"path": [
-						"auth",
-						"login"
-					]
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 3,\n    \"name\": \"Pedro novo\",\n    \"phoneNumber\": \"48998121232\",\n    \"emailAddress\": \"pedro@email.com\",\n    \"address\": {\n        \"id\": 2,\n        \"street\": \"street1\",\n        \"number\": 103,\n        \"district\": \"district3\",\n        \"city\": \"stat2\"\n        },\n    \"salary\": 5000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{heroku}}/teacher/3",
+							"host": [
+								"{{heroku}}"
+							],
+							"path": [
+								"teacher",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{heroku}}/teacher/3",
+							"host": [
+								"{{heroku}}"
+							],
+							"path": [
+								"teacher",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{heroku}}/teacher",
+							"host": [
+								"{{heroku}}"
+							],
+							"path": [
+								"teacher"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"username\",\n    \"password\": \"nova_senha\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{heroku}}/auth/login",
+							"host": [
+								"{{heroku}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refreshToken\": \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImlhdCI6MTY2MzE1MjY2MywiZXhwIjoxNjYzMjEyNjYzfQ.C6iLCxw7c3LK9By4rgh3aL_MKmrl-ZoYLCy4WDJCqhSttMZlFcj-QMphFYRJKhpFGKqYVa3k28JduVh0MbWDmA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{heroku}}/auth/refresh",
+							"host": [
+								"{{heroku}}"
+							],
+							"path": [
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"auth": {
