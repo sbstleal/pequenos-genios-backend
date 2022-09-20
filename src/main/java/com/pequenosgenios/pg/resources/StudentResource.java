@@ -1,5 +1,6 @@
 package com.pequenosgenios.pg.resources;
 
+import com.pequenosgenios.pg.dto.NewStudentDTO;
 import com.pequenosgenios.pg.dto.StudentDTO;
 import com.pequenosgenios.pg.services.impl.StudentService;
 import org.springframework.data.domain.Page;
@@ -35,8 +36,8 @@ public class StudentResource {
     }
 
     @PostMapping
-    public ResponseEntity<StudentDTO> insert(@RequestBody StudentDTO studentDTO) {
-        studentDTO = this.studentService.insert(studentDTO);
+    public ResponseEntity<StudentDTO> insert(@RequestBody NewStudentDTO newStudentDTO) {
+        StudentDTO studentDTO = this.studentService.insert(newStudentDTO);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
