@@ -17,13 +17,13 @@ public class NewStudentDTO implements Serializable {
     private String city;
     private String state;
     private String country;
-    private String fees;
+    private Double fees;
 
     public NewStudentDTO(){
 
     }
 
-    public NewStudentDTO(Long id, String name, String phoneNumber, String emailAddress, String cep, String street, Integer number, String district, String city, String state, String country, String fees) {
+    public NewStudentDTO(Long id, String name, String phoneNumber, String emailAddress, String cep, String street, Integer number, String district, String city, String state, String country, Double fees) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -141,11 +141,11 @@ public class NewStudentDTO implements Serializable {
         this.country = country;
     }
 
-    public String getFees() {
+    public Double getFees() {
         return fees;
     }
 
-    public void setFees(String fees) {
+    public void setFees(Double fees) {
         this.fees = fees;
     }
 }
