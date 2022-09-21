@@ -12,7 +12,7 @@ public class StudentDTO extends PersonDTO {
     private Double fees;
 
     public StudentDTO(Student model) {
-        super(model.getId(), model.getName(), model.getPhoneNumber(), model.getEmailAddress(), new AddressDTO(model.getAddress()));
+        super(model.getId(), model.getName(), model.getPhone(), model.getEmail(), new AddressDTO(model.getAddress()));
         this.fees = model.getFees();
     }
 

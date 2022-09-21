@@ -39,8 +39,8 @@ public class StudentService {
         studentDTO.setAddress(addressDTO);
         studentDTO.setName(newStudentDTO.getName());
         studentDTO.setFees(newStudentDTO.getFees());
-        studentDTO.setEmailAddress(newStudentDTO.getEmailAddress());
-        studentDTO.setPhoneNumber(newStudentDTO.getPhoneNumber());
+        studentDTO.setEmail(newStudentDTO.getEmail());
+        studentDTO.setPhone(newStudentDTO.getPhone());
 
         Student model = new Student(studentDTO);
         model = this.studentRepository.save(model);

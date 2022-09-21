@@ -17,7 +17,7 @@ public class Teacher extends Person {
     private Double salary;
 
     public Teacher(TeacherDTO dto) {
-        super(dto.getId(), dto.getName(), dto.getPhoneNumber(), dto.getEmailAddress(), new Address(dto.getAddress()));
+        super(dto.getId(), dto.getName(), dto.getPhone(), dto.getEmail(), new Address(dto.getAddress()));
         this.salary = dto.getSalary();
     }
 }

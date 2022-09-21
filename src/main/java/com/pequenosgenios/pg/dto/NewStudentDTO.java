@@ -8,8 +8,8 @@ public class NewStudentDTO implements Serializable {
 
     private Long id;
     private String name;
-    private String phoneNumber;
-    private String emailAddress;
+    private String phone;
+    private String email;
     private String cep;
     private String street;
     private Integer number;
@@ -23,11 +23,11 @@ public class NewStudentDTO implements Serializable {
 
     }
 
-    public NewStudentDTO(Long id, String name, String phoneNumber, String emailAddress, String cep, String street, Integer number, String district, String city, String state, String country, Double fees) {
+    public NewStudentDTO(Long id, String name, String phone, String email, String cep, String street, Integer number, String district, String city, String state, String country, Double fees) {
         this.id = id;
         this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.emailAddress = emailAddress;
+        this.phone = phone;
+        this.email = email;
         this.cep = cep;
         this.street = street;
         this.number = number;
@@ -41,8 +41,8 @@ public class NewStudentDTO implements Serializable {
     public NewStudentDTO(Student entity) {
         this.id = entity.getId();
         this.name = entity.getName();
-        this.phoneNumber = entity.getPhoneNumber();
-        this.emailAddress = entity.getEmailAddress();
+        this.phone = entity.getPhone();
+        this.email = entity.getEmail();
         this.cep = entity.getAddress().getCep();
         this.street = entity.getAddress().getStreet();
         this.number = entity.getAddress().getNumber();
@@ -69,20 +69,20 @@ public class NewStudentDTO implements Serializable {
         this.name = name;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getEmailAddress() {
-        return emailAddress;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getCep() {

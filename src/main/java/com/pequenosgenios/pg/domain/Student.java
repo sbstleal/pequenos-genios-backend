@@ -17,7 +17,7 @@ public class Student extends Person {
     private Double fees;
 
     public Student(StudentDTO dto) {
-        super(dto.getId(), dto.getName(), dto.getPhoneNumber(), dto.getEmailAddress(), new Address(dto.getAddress()));
+        super(dto.getId(), dto.getName(), dto.getPhone(), dto.getEmail(), new Address(dto.getAddress()));
         this.fees = dto.getFees();
     }
 }

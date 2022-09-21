@@ -41,8 +41,8 @@ public class TeacherService {
         teacherDTO.setAddress(addressDTO);
         teacherDTO.setName(newTeacherDTO.getName());
         teacherDTO.setSalary(newTeacherDTO.getSalary());
-        teacherDTO.setEmailAddress(newTeacherDTO.getEmailAddress());
-        teacherDTO.setPhoneNumber(newTeacherDTO.getPhoneNumber());
+        teacherDTO.setEmail(newTeacherDTO.getEmail());
+        teacherDTO.setPhone(newTeacherDTO.getPhone());
 
         Teacher model = new Teacher(teacherDTO);
         model = this.teacherRepository.save(model);
