@@ -21,7 +21,7 @@ public class StudentResource {
     }
 
     @GetMapping
-    public ResponseEntity<Page<StudentDTO>> findAll(Pageable pageable) {
+    public ResponseEntity<Page<NewStudentDTO>> findAll(Pageable pageable) {
         return ResponseEntity.ok(this.studentService.findAll(pageable));
     }
 

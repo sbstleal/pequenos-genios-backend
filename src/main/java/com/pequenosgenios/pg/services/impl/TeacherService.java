@@ -51,8 +51,8 @@ public class TeacherService {
     }
 
     @Transactional(readOnly = true)
-    public Page<TeacherDTO> findAll(Pageable pageable) {
-        return this.teacherRepository.findAll(pageable).map(TeacherDTO::new);
+    public Page<NewTeacherDTO> findAll(Pageable pageable) {
+        return this.teacherRepository.findAll(pageable).map(NewTeacherDTO::new);
     }
 
     @Transactional(readOnly = true)
