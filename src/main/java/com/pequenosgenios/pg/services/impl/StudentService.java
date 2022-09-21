@@ -49,8 +49,8 @@ public class StudentService {
     }
 
     @Transactional(readOnly = true)
-    public Page<StudentDTO> findAll(Pageable pageable) {
-        return this.studentRepository.findAll(pageable).map(StudentDTO::new);
+    public Page<NewStudentDTO> findAll(Pageable pageable) {
+        return this.studentRepository.findAll(pageable).map(NewStudentDTO::new);
     }
 
     @Transactional(readOnly = true)
