@@ -18,7 +18,9 @@ public abstract class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
     protected String name;
+    @Column(name="phone_number")
     protected String phoneNumber;
+    @Column(name="email_address")
     protected String emailAddress;
     @OneToOne(cascade = CascadeType.REMOVE)
     protected Address address;

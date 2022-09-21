@@ -13,9 +13,6 @@ public abstract class PersonDTO {
     protected Long id;
     protected String name;
     protected String phoneNumber;
-
-    @Column(name="email_address")
     protected String emailAddress;
-
     protected AddressDTO address;
 }
