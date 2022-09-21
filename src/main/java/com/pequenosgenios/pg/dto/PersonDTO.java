@@ -14,7 +14,7 @@ public abstract class PersonDTO {
     protected String name;
     protected String phoneNumber;
 
-    @Column(name="emailAddress")
+    @Column(name="email_address")
     protected String emailAddress;
 
     protected AddressDTO address;
