@@ -2,6 +2,7 @@ package com.pequenosgenios.pg.services.impl;
 
 import com.pequenosgenios.pg.domain.Teacher;
 import com.pequenosgenios.pg.dto.AddressDTO;
+import com.pequenosgenios.pg.dto.NewTeacherDTO;
 import com.pequenosgenios.pg.dto.TeacherDTO;
 import com.pequenosgenios.pg.repositories.TeacherRepository;
 import com.pequenosgenios.pg.services.Util;
@@ -21,9 +22,27 @@ public class TeacherService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public TeacherDTO insert(TeacherDTO teacherDTO) {
-        AddressDTO addressDTO = this.addressService.insert(teacherDTO.getAddress());
+    public TeacherDTO insert(NewTeacherDTO newTeacherDTO) {
+        AddressDTO addressDTO = new AddressDTO();
+
+        addressDTO.setCep(newTeacherDTO.getCep());
+        addressDTO.setCity(newTeacherDTO.getCity());
+        addressDTO.setCountry(newTeacherDTO.getCountry());
+        addressDTO.setNumber(newTeacherDTO.getNumber());
+        addressDTO.setState(newTeacherDTO.getState());
+        addressDTO.setDistrict(newTeacherDTO.getDistrict());
+        addressDTO.setStreet(newTeacherDTO.getStreet());
+        addressDTO = this.addressService.insert(addressDTO);
+
+        TeacherDTO teacherDTO = new TeacherDTO();
+
         teacherDTO.setAddress(addressDTO);
+
+        teacherDTO.setAddress(addressDTO);
+        teacherDTO.setName(newTeacherDTO.getName());
+        teacherDTO.setSalary(newTeacherDTO.getSalary());
+        teacherDTO.setEmailAddress(newTeacherDTO.getEmailAddress());
+        teacherDTO.setPhoneNumber(newTeacherDTO.getPhoneNumber());
 
         Teacher model = new Teacher(teacherDTO);
         model = this.teacherRepository.save(model);
