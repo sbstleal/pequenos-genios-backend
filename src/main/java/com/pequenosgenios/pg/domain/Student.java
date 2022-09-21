@@ -14,7 +14,7 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Student extends Person {
-    private String fees;
+    private Double fees;
 
     public Student(StudentDTO dto) {
         super(dto.getId(), dto.getName(), dto.getPhoneNumber(), dto.getEmailAddress(), new Address(dto.getAddress()));

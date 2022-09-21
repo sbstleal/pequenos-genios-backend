@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StudentDTO extends PersonDTO {
-    private String fees;
+    private Double fees;
 
     public StudentDTO(Student model) {
         super(model.getId(), model.getName(), model.getPhoneNumber(), model.getEmailAddress(), new AddressDTO(model.getAddress()));
