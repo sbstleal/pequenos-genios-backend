@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -20,8 +21,10 @@ public class Class {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
+    @Cascade(org.hibernate.annotations.CascadeType.REFRESH)
     private Teacher teacher;
     @OneToMany
+    @Cascade(org.hibernate.annotations.CascadeType.REFRESH)
     private Set<Student> students;
     private int grade;
 
