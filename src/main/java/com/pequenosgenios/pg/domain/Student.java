@@ -6,8 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 @Getter
@@ -16,6 +20,9 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 public class Student extends Person {
     private Double fees;
+    @ManyToOne
+    @Cascade(CascadeType.REFRESH)
+    private Class classe;
 
     public Student(StudentDTO dto) {
         super(dto.getId(), dto.getName(), dto.getPhone(), dto.getEmail(), dto.getCep(), dto.getStreet(), dto.getNumber(),
