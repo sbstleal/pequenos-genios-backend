@@ -43,7 +43,7 @@ Para clonar o repositório do git:
 
 API REST:
 
-- Arquivo de configuração do banco:
+- Arquivo de configuração da aplicação e banco:
     - pg-back\src\main\resources\application.properties
     - pg-back\src\main\resources\application.dev.properties
     - pg-back\src\main\resources\application.prod.properties
