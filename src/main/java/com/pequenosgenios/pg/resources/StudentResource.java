@@ -30,6 +30,11 @@ public class StudentResource {
         return ResponseEntity.ok(this.studentService.findById(id));
     }
 
+    @GetMapping("/name/{name}")
+    public ResponseEntity<Page<StudentDTO>> findByName(@PathVariable String name, Pageable pageable) {
+        return ResponseEntity.ok(this.studentService.findByName(name, pageable));
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<StudentDTO> update(@PathVariable Long id, @RequestBody StudentDTO studentDTO) {
         return ResponseEntity.accepted().body(this.studentService.update(id, studentDTO));

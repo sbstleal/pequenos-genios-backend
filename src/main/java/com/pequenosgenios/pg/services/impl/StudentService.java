@@ -1,7 +1,6 @@
 package com.pequenosgenios.pg.services.impl;
 
 import com.pequenosgenios.pg.domain.Student;
-import com.pequenosgenios.pg.dto.AddressDTO;
 import com.pequenosgenios.pg.dto.NewStudentDTO;
 import com.pequenosgenios.pg.dto.StudentDTO;
 import com.pequenosgenios.pg.repositories.StudentRepository;
@@ -59,4 +58,7 @@ public class StudentService {
                 .orElseThrow(() -> new RuntimeException("not found"));
     }
 
+    public Page<StudentDTO> findByName(String name, Pageable pageable) {
+        return this.studentRepository.findAllByName(name, pageable).map(StudentDTO::new);
+    }
 }
