@@ -21,7 +21,7 @@ import javax.persistence.OneToMany;
 public class Student extends Person {
     private Double fees;
     @ManyToOne
-    @Cascade(CascadeType.REFRESH)
+    @Cascade(CascadeType.ALL)
     private Class classe;
 
     public Student(StudentDTO dto) {

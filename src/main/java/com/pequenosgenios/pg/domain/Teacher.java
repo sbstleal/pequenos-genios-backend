@@ -21,7 +21,7 @@ import javax.persistence.OneToOne;
 public class Teacher extends Person {
     private Double salary;
     @OneToOne
-    @Cascade(CascadeType.REFRESH)
+    @Cascade(CascadeType.ALL)
     private Class classe;
 
     public Teacher(TeacherDTO dto) {
