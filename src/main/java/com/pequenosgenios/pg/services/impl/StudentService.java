@@ -59,6 +59,6 @@ public class StudentService {
     }
 
     public Page<StudentDTO> findByName(String name, Pageable pageable) {
-        return this.studentRepository.findAllByName(name, pageable).map(StudentDTO::new);
+        return this.studentRepository.findAllByNameContainsIgnoreCase(name, pageable).map(StudentDTO::new);
     }
 }

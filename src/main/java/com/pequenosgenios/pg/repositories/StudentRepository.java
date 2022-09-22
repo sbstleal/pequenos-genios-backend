@@ -13,6 +13,6 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
 	List<Student> findByEmail(String email);
 
-	Page<Student> findAllByName(String name, Pageable pageable);
+	Page<Student> findAllByNameContainsIgnoreCase(String name, Pageable pageable);
 
 }

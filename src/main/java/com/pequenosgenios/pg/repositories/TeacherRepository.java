@@ -13,5 +13,5 @@ public interface TeacherRepository extends JpaRepository<Teacher, Long> {
 
     List<Teacher> findByEmail(String email);
 
-    Page<Teacher> findAllByName(String name, Pageable pageable);
+    Page<Teacher> findAllByNameContainsIgnoreCase(String name, Pageable pageable);
 }

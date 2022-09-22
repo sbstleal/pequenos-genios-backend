@@ -2,7 +2,6 @@ package com.pequenosgenios.pg.services.impl;
 
 import com.pequenosgenios.pg.domain.Teacher;
 import com.pequenosgenios.pg.dto.NewTeacherDTO;
-import com.pequenosgenios.pg.dto.StudentDTO;
 import com.pequenosgenios.pg.dto.TeacherDTO;
 import com.pequenosgenios.pg.repositories.TeacherRepository;
 import com.pequenosgenios.pg.services.Util;
@@ -58,6 +57,6 @@ public class TeacherService {
     }
 
     public Page<TeacherDTO> findByName(String name, Pageable pageable) {
-        return this.teacherRepository.findAllByName(name, pageable).map(TeacherDTO::new);
+        return this.teacherRepository.findAllByNameContainsIgnoreCase(name, pageable).map(TeacherDTO::new);
     }
 }
