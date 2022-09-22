@@ -23,11 +23,13 @@ public class Class {
     private Teacher teacher;
     @OneToMany
     private Set<Student> students;
+    private int grade;
 
     public Class(ClassDTO dto) {
         this.id = dto.getId();
         this.teacher = new Teacher(dto.getTeacher());
         this.students = dto.getStudents().stream().map(Student::new).collect(Collectors.toSet());
+        this.grade = dto.getGrade();
     }
 
 }
