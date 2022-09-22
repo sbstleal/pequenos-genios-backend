@@ -20,6 +20,12 @@ public abstract class Person {
     protected String name;
     protected String phone;
     protected String email;
-    @OneToOne(cascade = CascadeType.REMOVE)
-    protected Address address;
+
+    protected String cep;
+    protected String street;
+    protected Integer number;
+    protected String district;
+    protected String city;
+    protected String state;
+    protected String country;
 }

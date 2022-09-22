@@ -12,5 +12,12 @@ public abstract class PersonDTO {
     protected String name;
     protected String phone;
     protected String email;
-    protected AddressDTO address;
+
+    protected String cep;
+    protected String street;
+    protected Integer number;
+    protected String district;
+    protected String city;
+    protected String state;
+    protected String country;
 }

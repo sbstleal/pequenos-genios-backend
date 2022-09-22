@@ -36,8 +36,8 @@ public class StudentResource {
     }
 
     @PostMapping
-    public ResponseEntity<StudentDTO> insert(@RequestBody NewStudentDTO newStudentDTO) {
-        StudentDTO studentDTO = this.studentService.insert(newStudentDTO);
+    public ResponseEntity<NewStudentDTO> insert(@RequestBody NewStudentDTO newStudentDTO) {
+        NewStudentDTO studentDTO = this.studentService.insert(newStudentDTO);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")

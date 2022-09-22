@@ -1,5 +1,6 @@
 package com.pequenosgenios.pg.domain;
 
+import com.pequenosgenios.pg.dto.NewTeacherDTO;
 import com.pequenosgenios.pg.dto.TeacherDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,7 +18,14 @@ public class Teacher extends Person {
     private Double salary;
 
     public Teacher(TeacherDTO dto) {
-        super(dto.getId(), dto.getName(), dto.getPhone(), dto.getEmail(), new Address(dto.getAddress()));
+        super(dto.getId(), dto.getName(), dto.getPhone(), dto.getEmail(), dto.getCep(), dto.getStreet(), dto.getNumber(),
+                dto.getDistrict(), dto.getCity(), dto.getState(), dto.getCountry());
+        this.salary = dto.getSalary();
+    }
+
+    public Teacher(NewTeacherDTO dto) {
+        super(dto.getId(), dto.getName(), dto.getPhone(), dto.getEmail(), dto.getCep(), dto.getStreet(), dto.getNumber(),
+                dto.getDistrict(), dto.getCity(), dto.getState(), dto.getCountry());
         this.salary = dto.getSalary();
     }
 }

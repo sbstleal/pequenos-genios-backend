@@ -44,13 +44,13 @@ public class NewTeacherDTO implements Serializable {
         this.name = entity.getName();
         this.phone = entity.getPhone();
         this.email = entity.getEmail();
-        this.cep = entity.getAddress().getCep();
-        this.street = entity.getAddress().getStreet();
-        this.number = entity.getAddress().getNumber();
-        this.district = entity.getAddress().getDistrict();
-        this.city = entity.getAddress().getCity();
-        this.state = entity.getAddress().getState();
-        this.country = entity.getAddress().getCountry();
+        this.cep = entity.getCep();
+        this.street = entity.getStreet();
+        this.number = entity.getNumber();
+        this.district = entity.getDistrict();
+        this.city = entity.getCity();
+        this.state = entity.getState();
+        this.country = entity.getCountry();
         this.salary = entity.getSalary();
     }
 

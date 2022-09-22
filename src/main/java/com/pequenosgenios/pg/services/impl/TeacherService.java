@@ -22,32 +22,11 @@ public class TeacherService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public TeacherDTO insert(NewTeacherDTO newTeacherDTO) {
-        AddressDTO addressDTO = new AddressDTO();
-
-        addressDTO.setCep(newTeacherDTO.getCep());
-        addressDTO.setCity(newTeacherDTO.getCity());
-        addressDTO.setCountry(newTeacherDTO.getCountry());
-        addressDTO.setNumber(newTeacherDTO.getNumber());
-        addressDTO.setState(newTeacherDTO.getState());
-        addressDTO.setDistrict(newTeacherDTO.getDistrict());
-        addressDTO.setStreet(newTeacherDTO.getStreet());
-        addressDTO = this.addressService.insert(addressDTO);
-
-        TeacherDTO teacherDTO = new TeacherDTO();
-
-        teacherDTO.setAddress(addressDTO);
-
-        teacherDTO.setAddress(addressDTO);
-        teacherDTO.setName(newTeacherDTO.getName());
-        teacherDTO.setSalary(newTeacherDTO.getSalary());
-        teacherDTO.setEmail(newTeacherDTO.getEmail());
-        teacherDTO.setPhone(newTeacherDTO.getPhone());
-
-        Teacher model = new Teacher(teacherDTO);
+    public NewTeacherDTO insert(NewTeacherDTO newTeacherDTO) {
+        Teacher model = new Teacher(newTeacherDTO);
         model = this.teacherRepository.save(model);
-        teacherDTO.setId(model.getId());
-        return teacherDTO;
+        newTeacherDTO.setId(model.getId());
+        return newTeacherDTO;
     }
 
     @Transactional(readOnly = true)
@@ -62,8 +41,6 @@ public class TeacherService {
 
     @Transactional(rollbackFor = Exception.class)
     public TeacherDTO update(Long id, TeacherDTO teacherDTO) {
-        this.addressService.update(teacherDTO.getAddress().getId(), teacherDTO.getAddress());
-
         TeacherDTO fromDatabase = this.findById(id);
         Util.myCopyProperties(teacherDTO, fromDatabase);
         this.teacherRepository.save(new Teacher(fromDatabase));

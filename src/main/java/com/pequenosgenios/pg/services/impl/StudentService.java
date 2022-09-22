@@ -22,30 +22,12 @@ public class StudentService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public StudentDTO insert(NewStudentDTO newStudentDTO) {
-        AddressDTO addressDTO = new AddressDTO();
+    public NewStudentDTO insert(NewStudentDTO newStudentDTO) {
+        Student model = new Student(newStudentDTO);
 
-        addressDTO.setCep(newStudentDTO.getCep());
-        addressDTO.setCity(newStudentDTO.getCity());
-        addressDTO.setCountry(newStudentDTO.getCountry());
-        addressDTO.setNumber(newStudentDTO.getNumber());
-        addressDTO.setState(newStudentDTO.getState());
-        addressDTO.setDistrict(newStudentDTO.getDistrict());
-        addressDTO.setStreet(newStudentDTO.getStreet());
-        addressDTO = this.addressService.insert(addressDTO);
-
-        StudentDTO studentDTO = new StudentDTO();
-
-        studentDTO.setAddress(addressDTO);
-        studentDTO.setName(newStudentDTO.getName());
-        studentDTO.setFees(newStudentDTO.getFees());
-        studentDTO.setEmail(newStudentDTO.getEmail());
-        studentDTO.setPhone(newStudentDTO.getPhone());
-
-        Student model = new Student(studentDTO);
         model = this.studentRepository.save(model);
-        studentDTO.setId(model.getId());
-        return studentDTO;
+        newStudentDTO.setId(model.getId());
+        return newStudentDTO;
     }
 
     @Transactional(readOnly = true)
@@ -60,7 +42,6 @@ public class StudentService {
 
     @Transactional(rollbackFor = Exception.class)
     public StudentDTO update(Long id, StudentDTO studentDTO) {
-        this.addressService.update(studentDTO.getAddress().getId(), studentDTO.getAddress());
 
         StudentDTO fromDatabase = this.findById(id);
         Util.myCopyProperties(studentDTO, fromDatabase);
