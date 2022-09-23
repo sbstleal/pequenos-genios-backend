@@ -1,7 +1,6 @@
 package com.pequenosgenios.pg.services.impl;
 
 import com.pequenosgenios.pg.domain.Student;
-import com.pequenosgenios.pg.dto.NewStudentDTO;
 import com.pequenosgenios.pg.dto.StudentDTO;
 import com.pequenosgenios.pg.repositories.StudentRepository;
 import com.pequenosgenios.pg.services.Util;
@@ -21,7 +20,7 @@ public class StudentService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public NewStudentDTO insert(NewStudentDTO newStudentDTO) {
+    public StudentDTO insert(StudentDTO newStudentDTO) {
         Student model = new Student(newStudentDTO);
 
         model = this.studentRepository.save(model);
@@ -30,8 +29,8 @@ public class StudentService {
     }
 
     @Transactional(readOnly = true)
-    public Page<NewStudentDTO> findAll(Pageable pageable) {
-        return this.studentRepository.findAll(pageable).map(NewStudentDTO::new);
+    public Page<StudentDTO> findAll(Pageable pageable) {
+        return this.studentRepository.findAll(pageable).map(StudentDTO::new);
     }
 
     @Transactional(readOnly = true)

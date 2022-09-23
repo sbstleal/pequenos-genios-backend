@@ -2,8 +2,8 @@ package com.pequenosgenios.pg.resources;
 
 import com.pequenosgenios.pg.dto.ClassDTO;
 import com.pequenosgenios.pg.services.impl.ClassService;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;

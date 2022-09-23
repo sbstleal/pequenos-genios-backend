@@ -1,7 +1,6 @@
 package com.pequenosgenios.pg.services.impl;
 
 import com.pequenosgenios.pg.domain.Teacher;
-import com.pequenosgenios.pg.dto.NewTeacherDTO;
 import com.pequenosgenios.pg.dto.TeacherDTO;
 import com.pequenosgenios.pg.repositories.TeacherRepository;
 import com.pequenosgenios.pg.services.Util;
@@ -21,7 +20,7 @@ public class TeacherService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public NewTeacherDTO insert(NewTeacherDTO newTeacherDTO) {
+    public TeacherDTO insert(TeacherDTO newTeacherDTO) {
         Teacher model = new Teacher(newTeacherDTO);
         model = this.teacherRepository.save(model);
         newTeacherDTO.setId(model.getId());
@@ -29,8 +28,8 @@ public class TeacherService {
     }
 
     @Transactional(readOnly = true)
-    public Page<NewTeacherDTO> findAll(Pageable pageable) {
-        return this.teacherRepository.findAll(pageable).map(NewTeacherDTO::new);
+    public Page<TeacherDTO> findAll(Pageable pageable) {
+        return this.teacherRepository.findAll(pageable).map(TeacherDTO::new);
     }
 
     @Transactional(readOnly = true)

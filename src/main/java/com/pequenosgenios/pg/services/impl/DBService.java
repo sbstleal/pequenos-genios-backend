@@ -1,13 +1,8 @@
 package com.pequenosgenios.pg.services.impl;
 
-import com.pequenosgenios.pg.domain.Class;
-import com.pequenosgenios.pg.domain.Student;
-import com.pequenosgenios.pg.domain.Teacher;
 import com.pequenosgenios.pg.repositories.ClassRepository;
 import com.pequenosgenios.pg.repositories.StudentRepository;
 import com.pequenosgenios.pg.repositories.TeacherRepository;
-
-import java.util.Arrays;
 
 //@Service
 public class DBService {

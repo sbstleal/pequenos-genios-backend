@@ -1,7 +1,6 @@
 package com.pequenosgenios.pg.dto;
 
 import com.pequenosgenios.pg.domain.Class;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

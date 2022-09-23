@@ -1,6 +1,5 @@
 package com.pequenosgenios.pg.domain;
 
-import com.pequenosgenios.pg.dto.NewStudentDTO;
 import com.pequenosgenios.pg.dto.StudentDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,7 +10,6 @@ import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 @Getter
@@ -30,9 +28,4 @@ public class Student extends Person {
         this.fees = dto.getFees();
     }
 
-    public Student(NewStudentDTO dto) {
-        super(dto.getId(), dto.getName(), dto.getPhone(), dto.getEmail(), dto.getCep(), dto.getStreet(), dto.getNumber(),
-                dto.getDistrict(), dto.getCity(), dto.getState(), dto.getCountry());
-        this.fees = dto.getFees();
-    }
 }
